@@ -21,6 +21,22 @@ publishTo := {
     Some("releases"  at nexus + "repository/maven-releases")
 }
 
+import ReleaseTransformations._
+
+releaseProcess := Seq[ReleaseStep](
+    checkSnapshotDependencies,
+    inquireVersions,
+    runClean,
+    runTest,
+    setReleaseVersion,
+    commitReleaseVersion,
+    tagRelease,
+    publishArtifacts,
+    setNextVersion,
+    commitNextVersion,
+    pushChanges)
+
+
 credentials += Credentials(Path.userHome / ".ivy2" / ".meweCredentials")
 
 publishArtifact in Test := false
