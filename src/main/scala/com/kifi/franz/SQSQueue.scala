@@ -50,6 +50,7 @@ trait SQSQueue[T]{
         p.failure(exception)
       }
       override def onSuccess(request: CreateQueueRequest, result: CreateQueueResult): Unit = {
+        queueUrl = result.getQueueUrl
         p.success(result.getQueueUrl)
       }
     })
@@ -65,6 +66,7 @@ trait SQSQueue[T]{
           }
         }
         override def onSuccess(request: GetQueueUrlRequest, result: GetQueueUrlResult): Unit = {
+          queueUrl = result.getQueueUrl
           p.success(result.getQueueUrl)
         }
       })
