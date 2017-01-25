@@ -2,12 +2,12 @@ organization := "com.kifi"
 
 name := "franz"
 
-crossScalaVersions := Seq("2.11.8", "2.12.0")
+crossScalaVersions := Seq("2.11.8", "2.12.1")
 
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
-  "com.amazonaws" % "aws-java-sdk-sqs" % "1.11.58",
+  "com.amazonaws" % "aws-java-sdk-sqs" % "1.11.83",
   "org.slf4j" % "slf4j-api" % "1.7.21"
 )
 
